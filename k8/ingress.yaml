@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: codit-ingress
+spec:
+  rules:
+  - host: "codit.ewords.pictures"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/jason"
+        backend:
+          service:
+            name: jason-springboot-app
+            port:
+              number: 8080
